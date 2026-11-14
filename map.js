@@ -70,7 +70,34 @@ if (!mapboxgl.accessToken.startsWith('pk.')) {
       const radiusScale = d3.scaleSqrt().domain([0,maxTraffic]).range([0,25]);
       const svg = d3.select('#map svg');
       const circles = svg.selectAll('circle').data(allTraffic,d=>d.short_name ?? d.Number).join('circle');
-      circles.append('title');
+      const tooltip = d3.select('body')
+  .append('div')
+  .attr('class', 'station-tooltip')
+  .style('position', 'fixed')
+  .style('background', 'white')
+  .style('padding', '10px 14px')
+  .style('border-radius', '8px')
+  .style('box-shadow', '0 4px 15px rgba(0,0,0,0.2)')
+  .style('pointer-events', 'none')
+  .style('z-index', '9999')
+  .style('display', 'none');
+
+circles
+  .on('mousemove', function(event, d) {
+    tooltip
+      .style('display', 'block')
+      .style('left', `${event.clientX + 15}px`)
+      .style('top', `${event.clientY + 15}px`)
+      .html(`
+        <strong>${d.name ?? d.NAME ?? 'BlueBikes Station'}</strong>
+        <div>Trips: ${d.totalTraffic.toLocaleString()}</div>
+        <div>Departures: ${d.departures.toLocaleString()}</div>
+        <div>Arrivals: ${d.arrivals.toLocaleString()}</div>
+      `);
+  })
+  .on('mouseleave', function() {
+    tooltip.style('display', 'none');
+  });;
       function updatePositions(){
         circles.each(function(d){
           const [lon,lat] = stationCoordinates(d);
