@@ -111,8 +111,7 @@ circles
         const scale = selected===-1 ? radiusScale : d3.scaleSqrt().domain([0,d3.max(filtered,d=>d.totalTraffic)||1]).range([0,50]);
         circles.data(filtered,d=>d.short_name ?? d.Number)
           .attr('r',d=>d.totalTraffic ? Math.max(2,scale(d.totalTraffic)) : 0)
-          .attr('fill',trafficColor)
-          .select('title').text(d=>`${d.name ?? d.NAME ?? 'Bluebikes station'}\n${d.totalTraffic.toLocaleString()} trips\n${d.departures.toLocaleString()} departures · ${d.arrivals.toLocaleString()} arrivals`);
+          .attr('fill', trafficColor);
         status.textContent = `${filtered.length} stations · ${d3.sum(filtered,d=>d.totalTraffic).toLocaleString()} station arrivals + departures shown · ${selected===-1?'all day':formatTime(selected)+' ±1 hour'}`;
       }
       let pending;
