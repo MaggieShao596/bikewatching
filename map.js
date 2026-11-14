@@ -2,7 +2,7 @@ import mapboxgl from 'https://cdn.jsdelivr.net/npm/mapbox-gl@2.15.0/+esm';
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7/+esm';
 
 // Replace this with your PUBLIC Mapbox token (starts with pk.).
-mapboxgl.accessToken = 'YOUR_MAPBOX_PUBLIC_ACCESS_TOKEN';
+mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZ2llNTk2IiwiYSI6ImNtd2cxZGdscDA3MngzMHBsNjloazl3NDgifQ.rlXtSs_4k2POW8BVHm2S1Q';
 const status = document.querySelector('#status');
 const slider = document.querySelector('#time-slider');
 const timeLabel = document.querySelector('#selected-time');
