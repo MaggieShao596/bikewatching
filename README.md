@@ -1,25 +1,43 @@
-# Bikewatching — DSC 106 Lab 7
 
-Interactive Boston/Cambridge Bluebikes traffic visualization using Mapbox GL JS, D3, SVG, and the course-provided March 2024 datasets.
+# 🚲 Bikewatching — DSC 106 Lab 7
 
-## Setup
-1. Create a free Mapbox account at https://account.mapbox.com/ and copy your **public** token (starts `pk.`).
-2. Open `map.js` and replace `YOUR_MAPBOX_PUBLIC_ACCESS_TOKEN` with your token.
-3. Open the folder in VS Code and use Live Server, or run `python3 -m http.server 8000` in this folder and visit http://localhost:8000.
-4. Create a new GitHub repository, upload all files preserving the `assets/` folder, then enable Settings → Pages → Deploy from branch → main / root.
-5. Open your existing personal website's `projects.html` and add a link to your published new project.
+An interactive visualization of Bluebikes traffic across Boston and Cambridge using Mapbox GL JS, D3.js, and SVG.
+
+## Live Demo
+
+https://maggieshao596.github.io/bikewatching/
+
+## Overview
+
+This project explores bike-sharing traffic patterns in Boston and Cambridge using Bluebikes trip data from March 2024.
+
+The visualization allows users to explore station activity, compare arrivals and departures, and see how traffic patterns change throughout the day.
 
 ## Features
-- Mapbox pan and zoom
+
+- Interactive Mapbox map with pan and zoom
 - Boston and Cambridge bike lane layers
-- SVG station markers positioned using `map.project()`
-- D3 square-root scaling of traffic volume
-- Hover tooltips for trips, arrivals and departures
-- Time slider filtering trips within ±60 minutes, including midnight wraparound
-- Arrival/departure diverging color scale and legend
+- SVG markers representing Bluebikes stations
+- Circle sizes scaled by traffic volume using D3
+- Hover tooltips showing station names and trip statistics
+- Interactive time slider with ±60-minute filtering
+- Diverging color scale:
+  - Blue: More arrivals
+  - Purple: Balanced traffic
+  - Orange: More departures
 
-## Recording
-Record a <=60-second MP4 showing the map, panning/zooming, station tooltips, time slider, color legend, and one thing learned.
+## Technologies
 
-## Notes
-Data files are loaded remotely from dsc106.com, so internet access is required. Mapbox public token is needed for map rendering. No GitHub upload or live-browser test is performed by this package.
+- JavaScript
+- D3.js
+- Mapbox GL JS
+- SVG
+- HTML & CSS
+
+## Dataset
+
+Bluebikes station information and March 2024 trip data provided through DSC 106 Lab 7.
+
+## Course
+
+UC San Diego — DSC 106: Introduction to Data Visualization
